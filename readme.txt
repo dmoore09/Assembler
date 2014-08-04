@@ -14,39 +14,33 @@ Supported MIPS32 Assembly Language
 The subset of the MIPS assembly language that you need to implement includes the following instructions. The following 
 conventions are observed in this section: 
 
-• 
-The notation (m:n)refers to a range of bits in the value to which it is applied. For example, the expression 
-(PC+4)(31:28) 
+• The notation (m:n)refers to a range of bits in the value to which it is applied. For example, the expression 
+  (PC+4)(31:28) refers to the high 4 bits of the address PC+4. 
 
+• imm16refers to a 16-bit immediate value; no assembly instruction will use a longer immediate
 
-refers to the high 4 bits of the address PC+4. 
+• offsetrefers to a literal applied to an address in a register; e.g., offset(rs); offsets will be signed 16-bit 
+  values 
+  
+• labelfields map to addresses, which will always be 16-bit values if you follow the instructions 
 
-• 
-imm16refers to a 16-bit immediate value; no assembly instruction will use a longer immediate 
-• 
-offsetrefers to a literal applied to an address in a register; e.g., offset(rs); offsets will be signed 16-bit 
-values 
+• sarefers to the shift amount field of an R-format instruction; shift amounts will be nonnegative 5-bit values 
 
-• 
-labelfields map to addresses, which will always be 16-bit values if you follow the instructions 
-• 
-sarefers to the shift amount field of an R-format instruction; shift amounts will be nonnegative 5-bit values 
-• 
-targetrefers to a 28-bit word address for an instruction; usually a symbolic notation 
-• 
-Sign-extension of immediates is assumed where necessary and not indicated in the notation. 
-• 
-C-like notation is used in the comments for arithmetic and logical bit-shifts: >>a , <<l and >>l 
-• 
-The C ternary operator is used for selection: condition ? if-true : if-false 
-• 
-Concatenation of bit-sequences is denoted by ||. 
-• 
-A few of the specified instructions are actually pseudo-instructions. That means your assembler must replace each 
-of them with a sequence of one or more other instructions; see the comments for details. 
-You will find the MIPS32 Architecture Volume 2: The MIPS32 Instruction Set to be a useful reference for machine 
-instruction formats and opcodes, and even information about the execution of the instructions. See the Resources page on 
-the course website. 
+• targetrefers to a 28-bit word address for an instruction; usually a symbolic notation 
+
+• Sign-extension of immediates is assumed where necessary and not indicated in the notation. 
+
+• C-like notation is used in the comments for arithmetic and logical bit-shifts: >>a , <<l and >>l 
+
+• The C ternary operator is used for selection: condition ? if-true : if-false 
+
+• Concatenation of bit-sequences is denoted by ||. 
+
+• A few of the specified instructions are actually pseudo-instructions. That means your assembler must replace each 
+  of them with a sequence of one or more other instructions; see the comments for details. 
+  You will find the MIPS32 Architecture Volume 2: The MIPS32 Instruction Set to be a useful reference for machine 
+  instruction formats and opcodes, and even information about the execution of the instructions. See the Resources page on 
+  the course website. 
 
 MIPS32 assembly .data section: 
 
