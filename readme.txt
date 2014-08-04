@@ -356,11 +356,10 @@ MIPS32 assembly code and the address that corresponds to that label. Addresses w
 
 Note that MARS makes the following assumptions about addresses: 
 
-• 
-The base address for the text segment is 0x00000000, so that’s the address of the first machine instruction. 
-• 
-The base address of the data segment is 0x00002000, so that’s the address of the first thing declared in the data 
-segment. 
+• The base address for the text segment is 0x00000000, so that’s the address of the first machine instruction. 
+• The base address of the data segment is 0x00002000, so that’s the address of the first thing declared in the data 
+  segment. 
+  
 The second fact above implies that the text segment cannot be longer than 8 KiB or 2048 machine instructions. You don’t 
 need to do anything special about that fact. 
 
@@ -392,20 +391,18 @@ How can I verify my output or test my code?
 In order to test your assembler you should use the MARS simulator, version 4.4. You will need to do the following steps in 
 the MARS simulator: 
 
-1. 
-First, ensure that MARS is configured to start the text segment at address 0x00000000. If you do not do this, 
+1. First, ensure that MARS is configured to start the text segment at address 0x00000000. If you do not do this, 
 MARS will use default values for the start addresses for the text and data segments, and that will result in 32-bit 
 addresses for various labels. 
-i) 
-Open the MARS simulator and modify the memory configuration settings through Settings->Memory 
+
+i) Open the MARS simulator and modify the memory configuration settings through Settings->Memory 
 Configuration and select Compact, Text at Address 0 and DO NOT modify any of the remaining 
 addresses on the right. Click Apply and Close to exit memory configuration settings. 
 
-2. 
-Now, in order to generate the actual machine file for the assembly program, you will need to dump the binary text 
+2. Now, in order to generate the actual machine file for the assembly program, you will need to dump the binary text 
 format for the text and data sections. Load your program into MARS and select Run->Assemble. 
-i) 
-Generate machine code for .text section of your assembly program. 
+
+i) Generate machine code for .text section of your assembly program. 
 
 Open the assembly program and select File->Dump memory. Select the .text (0x00000000 0x00000044) 
 in the Memory Segment and select Binary Text for dump format and click on dump 
@@ -417,14 +414,11 @@ Note that the actual end address of .textsegment will vary depending on your ass
 the sample input file add.asm, attached with this project, you will find that the text segment starts at 
 0x00000000and extends up to 0x00000044. 
 
-ii) 
-Generate machine code for your .datasegment of your assembly program. 
+ii) Generate machine code for your .datasegment of your assembly program. 
 
-a) 
-Open the assembly program and select File->Dump memory from the MARS IDE. 
+a) Open the assembly program and select File->Dump memory from the MARS IDE. 
 
-b) 
-Select the .data (0x00002000 -0x00002ffc) in the Memory Segment and select Binary Text 
+b) Select the .data (0x00002000 -0x00002ffc) in the Memory Segment and select Binary Text 
 for dump format and click on dump to a file button. Give an output file (say 
 data_segment_of_add_asm.txt) to dump the machine code of the assembly program. Now you have 
 the machine instructions for your data segment of your assembly program. 
@@ -434,8 +428,7 @@ For the add.asmexample above, you will find that data segment starts at 0x000020
 extends up to 0x00002ffc. Similar to the text segment, the actual size of the data segment depends 
 on your input file. 
 
-iii) 
-Copy the contents of your “text_segment_of_adder_asm.txt” and your “data_segment_of_adder_asm.txt” 
+iii) Copy the contents of your “text_segment_of_adder_asm.txt” and your “data_segment_of_adder_asm.txt” 
 with a blank line in between them to distinguish the two segments into another file (say add_asm.txt). 
 Now you have your output machine file ready. Your assembler program should produce an output 
 identical to this machine file, except that your representation of the .datasegment should end with the 
@@ -801,20 +794,15 @@ What should I turn in, and how?
 
 Create a tar file containing: 
 
-• 
-All the .cand .hfiles which are necessary in order to build your assembler. 
-• 
-A GNU makefile named “makefile”. The command “make assembler”should build an executable 
-named “assemble”. The makefile may include additional targets as you see fit. 
-• 
-A readme.txtfile if there’s anything you want to tell us regarding your implementation. For example, if there 
-are certain things that would cause your assembler to fail (e.g., it doesn’t handle lainstructions), telling us that 
-may result in a more satisfactory evaluation of your assembler. 
-• 
-A pledge.txtfile containing the pledge statement from the course website. 
-• 
-Nothing else. Do not include object files or an executable. We will compile your source code. 
-Submit this tar file to the Curator, by the deadline specified on the course website. 
+• All the .cand .hfiles which are necessary in order to build your assembler. 
+• A GNU makefile named “makefile”. The command “make assembler”should build an executable 
+  named “assemble”. The makefile may include additional targets as you see fit. 
+• A readme.txtfile if there’s anything you want to tell us regarding your implementation. For example, if there 
+  are certain things that would cause your assembler to fail (e.g., it doesn’t handle lainstructions), telling us that 
+  may result in a more satisfactory evaluation of your assembler. 
+• A pledge.txtfile containing the pledge statement from the course website. 
+• Nothing else. Do not include object files or an executable. We will compile your source code. 
+  Submit this tar file to the Curator, by the deadline specified on the course website. 
 
 Test Environment 
 
@@ -829,17 +817,16 @@ Maximizing Your Results
 Ideally you will produce a fully complete and correct solution. If not, there are some things you can do that will improve 
 your score: 
 
-• 
-Make sure your assembler does not crash on any valid input, even if it cannot produce the correct results. If you 
+• Make sure your assembler does not crash on any valid input, even if it cannot produce the correct results. If you 
 ensure that your assembler processes all the posted test files, it is extremely unlikely it will encounter anything in 
 our test data that would cause it to crash. On the other hand, if your assembler does crash on any of the posted test 
 files, it will certainly do so during our testing. We will not invest time or effort in diagnosing the cause of such a 
 crash during our testing. It’s your responsibility to make sure we don’t encounter such crashes. 
-• 
-If there is a MIPS32 instruction or data declaration that your solution cannot handle, document that in the 
+
+• If there is a MIPS32 instruction or data declaration that your solution cannot handle, document that in the 
 readme.txtfile you will include in your submission. 
-• 
-If there is a MIPS32 instruction or data declaration that your solution cannot handle, make sure that it still 
+
+• If there is a MIPS32 instruction or data declaration that your solution cannot handle, make sure that it still 
 produces the correct number of lines of output, since we will automate much of the checking we do. In particular, 
 if your assembler encounters a MIPS32 instruction it cannot handle, write a sequence of 32 asterisk characters 
 (‘*’) in place of the correct machine representation (or multiple lines for some pseudo-instructions). Doing this 
